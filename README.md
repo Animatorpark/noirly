@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/noirly-logo.png" width="180" alt="Noirly Logo">
+  <img src="assets/noirly-logo.png" width="48" alt="Noirly Logo">
 </p>
 
 <h1 align="center">Noirly — Soft Blue Dark Mode</h1>
