@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Firefox-Available-orange" />
   </a>
 </p>
-[![Firefox Add-on](https://img.shields.io/badge/Firefox-Available-orange)](https://addons.mozilla.org/addon/noirly-soft-blue-dark-mode/)
+
 # Noirly — Soft Blue Dark Mode
 
 Noirly transforms light websites into a smooth, premium dark experience designed for comfort and clarity.
