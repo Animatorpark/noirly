@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Dark</title>
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:#0c0f14;
+      color:rgba(255,255,255,0.92);
+      width:340px;
+      padding:14px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:18px;
+      padding:14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    }
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .title{
+      font-weight:900;
+      font-size:14px;
+      letter-spacing:0.2px;
+    }
+    .muted{
+      color:rgba(255,255,255,0.66);
+      font-size:12px;
+      margin-top:3px;
+      line-height:1.25;
+    }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+    }
+    .label{
+      color:rgba(255,255,255,0.82);
+      font-size:12px;
+      font-weight:700;
+    }
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,0.10);
+      margin:10px 0;
+    }
+    input[type="range"]{ width:100%; }
+    select{
+      width: 160px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.92);
+      outline: none;
+    }
+    button{
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.07);
+      color:rgba(255,255,255,0.92);
+      cursor:pointer;
+      font-weight:800;
+    }
+    .tiny{
+      font-size:11px;
+      color:rgba(255,255,255,0.55);
+      margin-top:6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div>
+        <div class="title">Premium Dark</div>
+        <div class="muted">Soft Blue premium dark mode for light websites.</div>
+      </div>
+      <label title="Global On/Off">
+        <input id="toggle" type="checkbox" />
+      </label>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+      <div>
+        <div class="label">Theme Mode</div>
+        <div class="muted">Choose premium style</div>
+      </div>
+      <select id="mode">
+        <option value="softblue">Soft Blue Premium</option>
+        <option value="matte">Matte Premium</option>
+        <option value="oled">OLED Black</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div>
+        <div class="label">Auto Fix Text</div>
+        <div class="muted">Fix black text on dark backgrounds</div>
+      </div>
+      <label><input id="autofix" type="checkbox" /></label>
+    </div>
+
+    <div class="row" style="padding-top:0;">
+      <div>
+        <div class="label">Skip already-dark sites</div>
+        <div class="muted">Avoid breaking dark UIs (YouTube/WhatsApp etc.)</div>
+      </div>
+      <label><input id="skipdark" type="checkbox" /></label>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="label">Strength</div>
+    <input id="strength" type="range" min="0.60" max="1.00" step="0.01" />
+    <div class="tiny">Recommended: 0.88–0.95 for premium look</div>
+
+    <div style="height:12px"></div>
+
+    <button id="openOptions">Open Settings</button>
+    <div style="height:10px"></div>
+    <button id="reset">Reset Default</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

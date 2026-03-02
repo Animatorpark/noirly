@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Premium Dark Settings</title>
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:#0c0f14;
+      color:rgba(255,255,255,0.92);
+      padding:22px;
+    }
+    .wrap{
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    }
+    h1{ margin:0 0 6px; font-size:18px; }
+    .muted{ color:rgba(255,255,255,0.65); font-size:13px; margin:0 0 16px; }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .row:first-of-type{ border-top:none; }
+    .label{ font-weight:800; font-size:13px; }
+    .sub{ color:rgba(255,255,255,0.62); font-size:12px; margin-top:4px; }
+    select{
+      width: 220px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.92);
+      outline:none;
+    }
+    input[type="range"]{ width: 240px; }
+    button{
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.07);
+      color:rgba(255,255,255,0.92);
+      cursor:pointer;
+      font-weight:800;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Premium Dark Settings</h1>
+      <p class="muted">Store-ready controls. Default mode is Soft Blue Premium.</p>
+
+      <div class="row">
+        <div>
+          <div class="label">Theme Mode</div>
+          <div class="sub">Soft Blue Premium, Matte Premium, or OLED Black.</div>
+        </div>
+        <select id="mode">
+          <option value="softblue">Soft Blue Premium</option>
+          <option value="matte">Matte Premium</option>
+          <option value="oled">OLED Black</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label">Strength</div>
+          <div class="sub">Overall intensity of the theme.</div>
+        </div>
+        <input id="strength" type="range" min="0.60" max="1.00" step="0.01" />
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label">Auto Fix Text</div>
+          <div class="sub">Fix low-contrast text automatically.</div>
+        </div>
+        <input id="autofix" type="checkbox" />
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label">Skip already-dark sites</div>
+          <div class="sub">Avoid touching websites that already have a dark UI.</div>
+        </div>
+        <input id="skipdark" type="checkbox" />
+      </div>
+
+      <div class="row">
+        <div>
+          <div class="label">Reset</div>
+          <div class="sub">Restore default premium settings.</div>
+        </div>
+        <button id="reset">Reset Default</button>
+      </div>
+
+      <script src="options.js"></script>
+    </div>
+  </div>
+</body>
+</html>

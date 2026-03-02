@@ -1,0 +1,231 @@
+:root{
+  /* Defaults are overwritten by mode on html[data-pd-mode] */
+  --pd-bg: #0c0f14;
+  --pd-surface: #111723;
+  --pd-surface2: #0f141e;
+  --pd-border: rgba(255,255,255,0.08);
+
+  --pd-text: rgba(255,255,255,0.92);
+  --pd-muted: rgba(255,255,255,0.70);
+  --pd-subtle: rgba(255,255,255,0.56);
+
+  --pd-link: #7aa7ff;
+  --pd-radius: 14px;
+
+  /* 0..1 controlled by JS */
+  --pd-strength: 0.92;
+}
+
+/* ---------------------------------------
+   MODE: Matte Premium (default)
+---------------------------------------- */
+html[data-pd-mode="matte"]{
+  --pd-bg: #0c0f14;
+  --pd-surface: #111723;
+  --pd-surface2: #0f141e;
+  --pd-border: rgba(255,255,255,0.08);
+  --pd-link: #7aa7ff;
+}
+
+/* ---------------------------------------
+   MODE: Soft Blue Premium (luxury)
+---------------------------------------- */
+html[data-pd-mode="softblue"]{
+  --pd-bg: #070B14;
+  --pd-surface: #0B1222;
+  --pd-surface2: #08101E;
+  --pd-border: rgba(122,167,255,0.16);
+
+  --pd-text: rgba(255,255,255,0.93);
+  --pd-muted: rgba(219,234,255,0.72);
+  --pd-subtle: rgba(219,234,255,0.56);
+
+  --pd-link: #8CB5FF;
+}
+
+/* ---------------------------------------
+   MODE: OLED (true black style)
+---------------------------------------- */
+html[data-pd-mode="oled"]{
+  --pd-bg: #000000;
+  --pd-surface: #070707;
+  --pd-surface2: #0a0a0a;
+  --pd-border: rgba(255,255,255,0.10);
+  --pd-link: #9bbcff;
+}
+
+/* Activate only when enabled */
+html[data-premium-dark="1"]{
+  color-scheme: dark;
+}
+
+/* Smooth premium transition (store-ready feel) */
+html[data-premium-dark="1"],
+html[data-premium-dark="1"] body{
+  transition: background-color .18s ease, color .18s ease, filter .18s ease;
+}
+
+/* Base */
+html[data-premium-dark="1"],
+html[data-premium-dark="1"] body{
+  background: color-mix(in srgb, var(--pd-bg) calc(var(--pd-strength) * 100%), transparent);
+  color: var(--pd-text) !important;
+}
+
+html[data-premium-dark="1"] body{
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Links */
+html[data-premium-dark="1"] a{
+  color: var(--pd-link) !important;
+}
+
+/* Softer borders globally */
+html[data-premium-dark="1"] *{
+  border-color: color-mix(in srgb, var(--pd-border) calc(var(--pd-strength) * 100%), transparent) !important;
+}
+
+/* Forms */
+html[data-premium-dark="1"] input,
+html[data-premium-dark="1"] textarea,
+html[data-premium-dark="1"] select{
+  background: color-mix(in srgb, var(--pd-surface) calc(var(--pd-strength) * 100%), transparent) !important;
+  color: var(--pd-text) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--pd-border) !important;
+}
+
+/* Layer common containers (NOT in safe mode) */
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) header,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) nav,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) aside,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) footer,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) section,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) article,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) main,
+html[data-premium-dark="1"]:not([data-pd-safemode="1"]) div{
+  background-color: color-mix(in srgb, var(--pd-surface2) calc((var(--pd-strength) - 0.35) * 100%), transparent) !important;
+}
+
+/* Media safe */
+html[data-premium-dark="1"] img,
+html[data-premium-dark="1"] video,
+html[data-premium-dark="1"] picture,
+html[data-premium-dark="1"] canvas,
+html[data-premium-dark="1"] svg,
+html[data-premium-dark="1"] iframe{
+  background: transparent !important;
+  filter: none !important;
+}
+
+/* Reduce hard white inline backgrounds */
+html[data-premium-dark="1"] [style*="background:#fff"],
+html[data-premium-dark="1"] [style*="background: #fff"],
+html[data-premium-dark="1"] [style*="background-color:#fff"],
+html[data-premium-dark="1"] [style*="background-color: #fff"],
+html[data-premium-dark="1"] [style*="background: rgb(255"],
+html[data-premium-dark="1"] [style*="background-color: rgb(255"]{
+  background-color: color-mix(in srgb, var(--pd-surface) calc(var(--pd-strength) * 100%), transparent) !important;
+}
+
+/* Nice selection */
+html[data-premium-dark="1"] ::selection{
+  background: rgba(140,181,255,0.25);
+}
+
+/* --------------------------------------------------
+   Safe-mode protections (YouTube / WhatsApp etc.)
+--------------------------------------------------- */
+html[data-premium-dark="1"][data-pd-safemode="1"] body{
+  background: var(--pd-bg) !important;
+}
+
+/* YouTube player / overlays must not be touched */
+html[data-premium-dark="1"][data-pd-safemode="1"] video,
+html[data-premium-dark="1"][data-pd-safemode="1"] #movie_player,
+html[data-premium-dark="1"][data-pd-safemode="1"] .html5-video-player,
+html[data-premium-dark="1"][data-pd-safemode="1"] .ytp-chrome-bottom,
+html[data-premium-dark="1"][data-pd-safemode="1"] .ytp-chrome-top,
+html[data-premium-dark="1"][data-pd-safemode="1"] .ytp-gradient-bottom,
+html[data-premium-dark="1"][data-pd-safemode="1"] .ytp-gradient-top{
+  background: transparent !important;
+  filter: none !important;
+}
+
+/* ===============================
+   DISCORD SAFE MODE PROTECTION
+=============================== */
+
+/* Preserve Discord layered UI */
+html[data-premium-dark="1"][data-pd-safemode="1"] .appMount,
+html[data-premium-dark="1"][data-pd-safemode="1"] .bg-1QIAus,
+html[data-premium-dark="1"][data-pd-safemode="1"] .layer-86YKbF {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Prevent blur distortion */
+html[data-premium-dark="1"][data-pd-safemode="1"] * {
+  backdrop-filter: none !important;
+}
+
+/* ===============================
+   CODE / EDITOR PROTECTION
+   =============================== */
+
+/* Do not repaint syntax highlighting blocks */
+html[data-premium-dark="1"] pre,
+html[data-premium-dark="1"] code,
+html[data-premium-dark="1"] kbd,
+html[data-premium-dark="1"] samp,
+html[data-premium-dark="1"] .hljs {
+  background-color: revert !important;
+  color: revert !important;
+  filter: none !important;
+}
+
+/* Do not repaint major code editors */
+html[data-premium-dark="1"] .CodeMirror,
+html[data-premium-dark="1"] .monaco-editor,
+html[data-premium-dark="1"] .ace_editor,
+html[data-premium-dark="1"] .cm-editor {
+  background-color: revert !important;
+  color: revert !important;
+  filter: none !important;
+}
+
+/* Extra safety: never apply “container painting” inside editors */
+html[data-premium-dark="1"] .CodeMirror * ,
+html[data-premium-dark="1"] .monaco-editor * ,
+html[data-premium-dark="1"] .ace_editor * ,
+html[data-premium-dark="1"] .cm-editor * {
+  background-color: revert !important;
+  filter: none !important;
+}
+
+/* ===============================
+   FIX BLUR: CODE EDITOR FONT RENDERING
+   =============================== */
+
+html[data-premium-dark="1"] pre,
+html[data-premium-dark="1"] code,
+html[data-premium-dark="1"] .CodeMirror,
+html[data-premium-dark="1"] .cm-editor,
+html[data-premium-dark="1"] .monaco-editor,
+html[data-premium-dark="1"] .ace_editor {
+  -webkit-font-smoothing: auto !important;
+  text-rendering: auto !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* extra: make sure children don't inherit fuzzy settings */
+html[data-premium-dark="1"] .CodeMirror *,
+html[data-premium-dark="1"] .cm-editor *,
+html[data-premium-dark="1"] .monaco-editor *,
+html[data-premium-dark="1"] .ace_editor * {
+  -webkit-font-smoothing: auto !important;
+  text-rendering: auto !important;
+}

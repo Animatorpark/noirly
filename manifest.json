@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Noirly — Soft Blue Dark Mode",
+  "version": "1.2.0",
+  "description": "Soft Blue premium dark mode for light websites. Smart detection skips already-dark sites.",
+
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+
+  "action": {
+    "default_title": "Noirly",
+    "default_popup": "popup.html"
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "options_page": "options.html",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "noirly@animatorpark.com",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["premium-dark.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
