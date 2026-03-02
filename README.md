@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="assets/noirly-logo.png" width="180" alt="Noirly Logo">
+</p>
+
+<h1 align="center">Noirly — Soft Blue Dark Mode</h1>
+
+<p align="center">
+  Soft Blue Premium Dark Mode for modern browsing.
+</p>
+<p align="center">
+  <a href="https://addons.mozilla.org/addon/noirly-soft-blue-dark-mode/">
+    <img src="https://img.shields.io/badge/Firefox-Available-orange" />
+  </a>
+</p>
 [![Firefox Add-on](https://img.shields.io/badge/Firefox-Available-orange)](https://addons.mozilla.org/addon/noirly-soft-blue-dark-mode/)
 # Noirly — Soft Blue Dark Mode
 
